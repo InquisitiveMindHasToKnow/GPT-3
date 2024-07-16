@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Article, Brand, CallToAction, Feature, NavBar } from './components'
-
 const App = () => {
   return (
     <div>
