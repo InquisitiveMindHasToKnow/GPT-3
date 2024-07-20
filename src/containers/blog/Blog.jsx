@@ -5,11 +5,16 @@ import './blog.css';
 
 const currentDate = new Date();
 
-const day = currentDate.getDate();
-const month = currentDate.getMonth() + 1; // Months are zero-based so need the +1
-const year = currentDate.getFullYear();
+const options = { 
+  weekday: 'long', 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+};
 
-const date= `${month}/${day}/${year}`
+const formattedDate = new Intl.DateTimeFormat('en-US', options).format(currentDate);
+
+console.log(formattedDate); // Outputs something like "Saturday, July 20, 2024"
 
 const Blog = () => (
   <div className="gpt3__blog section__padding" id="blog">
@@ -18,13 +23,13 @@ const Blog = () => (
     </div>
     <div className="gpt3__blog-container">
       <div className="gpt3__blog-container_groupA">
-        <Article imgUrl={blog01} date={date} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
+        <Article imgUrl={blog01} date={formattedDate} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
       </div>
       <div className="gpt3__blog-container_groupB">
-        <Article imgUrl={blog02} date={date} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
-        <Article imgUrl={blog03} date={date} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
-        <Article imgUrl={blog04} date={date} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
-        <Article imgUrl={blog05} date={date} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
+        <Article imgUrl={blog02} date={formattedDate} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
+        <Article imgUrl={blog03} date={formattedDate} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
+        <Article imgUrl={blog04} date={formattedDate} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
+        <Article imgUrl={blog05} date={formattedDate} text="GPT-3 and Open  AI is the future. Let us exlore how it is?" />
       </div>
     </div>
   </div>
